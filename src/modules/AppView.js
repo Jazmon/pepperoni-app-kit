@@ -6,11 +6,12 @@ import * as SessionStateActions from '../modules/session/SessionState';
 import store from '../redux/store';
 import DeveloperMenu from '../components/DeveloperMenu';
 
-const AppView = React.createClass({
-  propTypes: {
+class AppView extends React.Component {
+  static propTypes = {
     isReady: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired
-  },
+  }
+
   componentDidMount() {
     snapshotUtil.resetSnapshot()
       .then(snapshot => {
@@ -26,7 +27,7 @@ const AppView = React.createClass({
           snapshotUtil.saveSnapshot(store.getState());
         });
       });
-  },
+  }
 
   render() {
     if (!this.props.isReady) {
@@ -44,7 +45,7 @@ const AppView = React.createClass({
       </View>
     );
   }
-});
+}
 
 const styles = StyleSheet.create({
   centered: {

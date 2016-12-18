@@ -6,13 +6,13 @@ import React from 'react';
 import {AppRegistry, BackAndroid} from 'react-native';
 import * as NavigationStateActions from './src/modules/navigation/NavigationState';
 
-const PepperoniAppTemplate = React.createClass({
 
+class PepperoniAppTemplate extends React.Component {
   componentWillMount() {
     BackAndroid.addEventListener('hardwareBackPress', this.navigateBack);
-  },
+  }
 
-  navigateBack() {
+  navigateBack = () => {
     const navigationState = store.getState().get('navigationState');
     const tabs = navigationState.get('tabs');
     const tabKey = tabs.getIn(['routes', tabs.get('index')]).get('key');
@@ -33,7 +33,7 @@ const PepperoniAppTemplate = React.createClass({
 
     store.dispatch(NavigationStateActions.popRoute());
     return true;
-  },
+  }
 
   render() {
     return (
@@ -42,6 +42,6 @@ const PepperoniAppTemplate = React.createClass({
       </Provider>
     );
   }
-});
+}
 
 AppRegistry.registerComponent('PepperoniAppTemplate', () => PepperoniAppTemplate);

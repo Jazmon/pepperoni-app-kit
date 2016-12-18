@@ -13,28 +13,23 @@ const color = () => Math.floor(255 * Math.random());
  * Sample view to demonstrate navigation patterns.
  * @TODO remove this module in a live application.
  */
-const ColorView = React.createClass({
-  propTypes: {
+class ColorView extends React.PureComponent {
+  static propTypes = {
     index: PropTypes.number.isRequired,
     dispatch: PropTypes.func.isRequired
-  },
+  }
 
-  getInitialState() {
-    return {
-      background: `rgba(${color()},${color()},${color()}, 1)`
-    };
-  },
+  state = {background: `rgba(${color()},${color()},${color()}, 1)`};
 
-  onNextPress() {
+  onNextPress = () => {
     const index = this.props.index;
     this.props.dispatch(NavigationState.pushRoute({
       key: `Color_${index + 1}`,
       title: `Color Screen #${index + 1}`
     }));
-  },
+  }
 
   render() {
-
     const index = this.props.index;
     const text = `View #${index}`;
     return (
@@ -45,7 +40,7 @@ const ColorView = React.createClass({
       </View>
     );
   }
-});
+}
 
 const styles = StyleSheet.create({
   container: {

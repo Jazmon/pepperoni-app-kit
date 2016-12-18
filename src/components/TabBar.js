@@ -9,14 +9,16 @@ import {
 
 const {PropTypes: NavigationPropTypes} = NavigationExperimental;
 
-const TabBar = React.createClass({
-  displayName: 'TabBar',
-  propTypes: {
+
+class TabBar extends React.PureComponent {
+  static displayName = 'TabBar';
+
+  static propTypes = {
     tabs: NavigationPropTypes.navigationState.isRequired,
     height: PropTypes.number.isRequired,
     currentTabIndex: PropTypes.number.isRequired,
     switchTab: PropTypes.func.isRequired
-  },
+  };
 
   render() {
     return (
@@ -32,7 +34,7 @@ const TabBar = React.createClass({
       </View>
     );
   }
-});
+}
 
 const styles = StyleSheet.create({
   navigationBar: {

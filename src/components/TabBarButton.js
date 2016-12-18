@@ -6,13 +6,15 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default React.createClass({
-  displayName: 'TabBarButton',
-  propTypes: {
+export default class TabBarButton extends React.PureComponent {
+  static displayName = 'TabBarButton';
+
+  static propTypes = {
     text: PropTypes.string.isRequired,
     action: PropTypes.func.isRequired,
     isSelected: PropTypes.bool.isRequired
-  },
+  };
+
   render() {
     return (
       <TouchableOpacity
@@ -23,7 +25,7 @@ export default React.createClass({
       </TouchableOpacity>
     );
   }
-});
+}
 
 const styles = StyleSheet.create({
   button: {

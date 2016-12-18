@@ -9,31 +9,34 @@ import {
   View
 } from 'react-native';
 
-const CounterView = React.createClass({
-  propTypes: {
+class CounterView extends React.PureComponent {
+  static propTypes = {
     counter: PropTypes.number.isRequired,
     userName: PropTypes.string,
     userProfilePhoto: PropTypes.string,
     loading: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired
-  },
-  increment() {
+  }
+
+  increment = () => {
     this.props.dispatch(CounterState.increment());
-  },
-  reset() {
+  }
+  reset = () => {
     this.props.dispatch(CounterState.reset());
-  },
-  random() {
+  }
+
+  random = () => {
     this.props.dispatch(CounterState.random());
-  },
-  bored() {
+  }
+
+  bored = () => {
     this.props.dispatch(NavigationState.pushRoute({
       key: 'Color',
       title: 'Color Screen'
     }));
-  },
+  }
 
-  renderUserInfo() {
+  renderUserInfo = () => {
     if (!this.props.userName) {
       return null;
     }
@@ -53,7 +56,8 @@ const CounterView = React.createClass({
         </Text>
       </View>
     );
-  },
+  }
+
   render() {
     const loadingStyle = this.props.loading
       ? {backgroundColor: '#eee'}
@@ -93,7 +97,7 @@ const CounterView = React.createClass({
       </View>
     );
   }
-});
+}
 
 const circle = {
   borderWidth: 0,

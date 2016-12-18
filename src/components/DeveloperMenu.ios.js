@@ -12,10 +12,10 @@ import {
  * It can be accessed through a tiny button in the bottom right corner of the screen.
  * ONLY FOR DEVELOPMENT MODE!
  */
-const DeveloperMenu = React.createClass({
-  displayName: 'DeveloperMenu',
+class DeveloperMenu extends React.Component {
+  static displayName = 'DeveloperMenu';
 
-  showDeveloperMenu() {
+  showDeveloperMenu = () => {
     const options = {
       clearState: 0,
       showLogin: 1,
@@ -36,7 +36,7 @@ const DeveloperMenu = React.createClass({
       ],
       cancelButtonIndex: options.cancel
     }, callback);
-  },
+  }
 
   render() {
     if (!__DEV__) {
@@ -50,7 +50,7 @@ const DeveloperMenu = React.createClass({
         />
     );
   }
-});
+}
 
 const styles = StyleSheet.create({
   circle: {
