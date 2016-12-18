@@ -1,3 +1,4 @@
+// @flow
 import React, {PropTypes} from 'react';
 import {
   Text,
@@ -5,6 +6,12 @@ import {
   StyleSheet
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
+type Props = {
+  text: string;
+  action: Function;
+  isSelected: boolean;
+};
 
 export default class TabBarButton extends React.PureComponent {
   static displayName = 'TabBarButton';
@@ -14,6 +21,8 @@ export default class TabBarButton extends React.PureComponent {
     action: PropTypes.func.isRequired,
     isSelected: PropTypes.bool.isRequired
   };
+
+  props: Props;
 
   render() {
     return (

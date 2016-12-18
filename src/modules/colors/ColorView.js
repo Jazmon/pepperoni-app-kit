@@ -29,7 +29,6 @@ class ColorView extends React.PureComponent {
     dispatch: PropTypes.func.isRequired
   }
 
-
   state: State = {background: `rgba(${color()},${color()},${color()}, 1)`};
 
   props: Props;

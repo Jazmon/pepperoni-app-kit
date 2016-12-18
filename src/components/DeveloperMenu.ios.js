@@ -8,6 +8,14 @@ import {
   StyleSheet
 } from 'react-native';
 
+type Options = {
+  clearState: number;
+  showLogin: number;
+  cancel: number;
+};
+
+type Option = 0 | 1 | 2;
+
 /**
  * Simple developer menu, which allows e.g. to clear the app state.
  * It can be accessed through a tiny button in the bottom right corner of the screen.
@@ -17,13 +25,13 @@ class DeveloperMenu extends React.Component {
   static displayName = 'DeveloperMenu';
 
   showDeveloperMenu = () => {
-    const options = {
+    const options: Options = {
       clearState: 0,
       showLogin: 1,
       cancel: 2
     };
 
-    const callback = async index => {
+    const callback = async (index: Option) => {
       if (index === options.clearState) {
         await snapshot.clearSnapshot();
         console.warn('(╯°□°）╯︵ ┻━┻ \nState cleared, Cmd+R to reload the application now');

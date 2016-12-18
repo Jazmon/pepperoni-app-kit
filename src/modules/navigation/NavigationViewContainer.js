@@ -1,3 +1,4 @@
+// @flow
 import {connect} from 'react-redux';
 import {pushRoute, popRoute, switchTab, navigationCompleted} from './NavigationState';
 import NavigationView from './NavigationView';
