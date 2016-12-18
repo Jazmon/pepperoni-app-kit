@@ -5,7 +5,6 @@ import AppViewContainer from './src/modules/AppViewContainer';
 import React from 'react';
 import {AppRegistry} from 'react-native';
 
-
 const PepperoniAppTemplate = () => (
   <Provider store={store}>
     <AppViewContainer />

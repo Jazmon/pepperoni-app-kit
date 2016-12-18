@@ -9,7 +9,6 @@ import {
 
 const {PropTypes: NavigationPropTypes} = NavigationExperimental;
 
-
 class TabBar extends React.PureComponent {
   static displayName = 'TabBar';
 

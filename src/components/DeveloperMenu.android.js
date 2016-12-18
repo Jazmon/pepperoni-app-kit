@@ -16,10 +16,10 @@ import {
 class DeveloperMenu extends React.Component {
   static displayName = 'DeveloperMenu';
 
-  state = {visible: false};
+  state = {isVisible: false};
 
   showDeveloperMenu = () => {
-    this.setState({isVisible: false});
+    this.setState({isVisible: true});
   }
 
   clearState = async () => {

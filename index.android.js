@@ -6,7 +6,6 @@ import React from 'react';
 import {AppRegistry, BackAndroid} from 'react-native';
 import * as NavigationStateActions from './src/modules/navigation/NavigationState';
 
-
 class PepperoniAppTemplate extends React.Component {
   componentWillMount() {
     BackAndroid.addEventListener('hardwareBackPress', this.navigateBack);
