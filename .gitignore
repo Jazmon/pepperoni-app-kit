@@ -47,5 +47,8 @@ buck-out/
 android/app/libs
 android/keystores/debug.keystore
 
-#yarn
+# yarn
 yarn-error.log
+
+# vscode
+.vscode
