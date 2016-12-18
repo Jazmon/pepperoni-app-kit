@@ -1,3 +1,4 @@
+// @flow
 import React, {PropTypes} from 'react';
 import TabBarButton from '../components/TabBarButton';
 
@@ -9,6 +10,13 @@ import {
 
 const {PropTypes: NavigationPropTypes} = NavigationExperimental;
 
+type Props = {
+  tabs: any;
+  height: number;
+  currentTabIndex: number;
+  switchTab: Function;
+};
+
 class TabBar extends React.PureComponent {
   static displayName = 'TabBar';
 
@@ -18,6 +26,8 @@ class TabBar extends React.PureComponent {
     currentTabIndex: PropTypes.number.isRequired,
     switchTab: PropTypes.func.isRequired
   };
+
+  props: Props;
 
   render() {
     return (

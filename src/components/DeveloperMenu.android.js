@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import * as snapshot from '../utils/snapshot';
 
@@ -8,6 +9,10 @@ import {
   StyleSheet
 } from 'react-native';
 
+type State = {
+  isVisible: boolean;
+};
+
 /**
  * Simple developer menu, which allows e.g. to clear the app state.
  * It can be accessed through a tiny button in the bottom right corner of the screen.
@@ -16,7 +21,7 @@ import {
 class DeveloperMenu extends React.Component {
   static displayName = 'DeveloperMenu';
 
-  state = {isVisible: false};
+  state: State = {isVisible: false};
 
   showDeveloperMenu = () => {
     this.setState({isVisible: true});
@@ -32,7 +37,7 @@ class DeveloperMenu extends React.Component {
     this.setState({isVisible: false});
   }
 
-  renderMenuItem = (text, onPress) => (
+  renderMenuItem = (text: string, onPress: Function) => (
     <TouchableOpacity
         key={text}
         onPress={onPress}

@@ -1,3 +1,4 @@
+// @flow
 import * as CounterState from './CounterState';
 import * as NavigationState from '../../modules/navigation/NavigationState';
 import React, {PropTypes} from 'react';
@@ -9,6 +10,14 @@ import {
   View
 } from 'react-native';
 
+type Props = {
+  counter: number;
+  userName?: string;
+  userProfilePhoto?: string;
+  loading: boolean;
+  dispatch: Function;
+};
+
 class CounterView extends React.PureComponent {
   static propTypes = {
     counter: PropTypes.number.isRequired,
@@ -17,6 +26,8 @@ class CounterView extends React.PureComponent {
     loading: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired
   }
+
+  props: Props;
 
   increment = () => {
     this.props.dispatch(CounterState.increment());

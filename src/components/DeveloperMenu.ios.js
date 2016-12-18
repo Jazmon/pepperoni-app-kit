@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import * as snapshot from '../utils/snapshot';
 
@@ -47,7 +48,7 @@ class DeveloperMenu extends React.Component {
       <TouchableOpacity
         style={styles.circle}
         onPress={this.showDeveloperMenu}
-        />
+      />
     );
   }
 }

@@ -1,3 +1,4 @@
+// @flow
 import React, {PropTypes} from 'react';
 import {
   Text,
@@ -9,6 +10,15 @@ import * as NavigationState from '../../modules/navigation/NavigationState';
 
 const color = () => Math.floor(255 * Math.random());
 
+type Props = {
+  index: number;
+  dispatch: Function;
+};
+
+type State = {
+  background: string;
+};
+
 /**
  * Sample view to demonstrate navigation patterns.
  * @TODO remove this module in a live application.
@@ -19,7 +29,10 @@ class ColorView extends React.PureComponent {
     dispatch: PropTypes.func.isRequired
   }
 
-  state = {background: `rgba(${color()},${color()},${color()}, 1)`};
+
+  state: State = {background: `rgba(${color()},${color()},${color()}, 1)`};
+
+  props: Props;
 
   onNextPress = () => {
     const index = this.props.index;

@@ -1,3 +1,4 @@
+// @flow
 import React, {PropTypes} from 'react';
 import {
   NavigationExperimental,
@@ -14,6 +15,24 @@ import TabBar from '../../components/TabBar';
 
 // Customize bottom tab bar height here if desired
 const TAB_BAR_HEIGHT = 50;
+
+type Props = {
+  onNavigateBack: Function;
+  onNavigateCompleted: Function;
+  navigationState: {
+    tabs: {
+      routes: Array<{
+        key: string;
+        title: string;
+      }>;
+      index: number;
+    };
+    HomeTab: any;
+    ProfileTab: any;
+  };
+  switchTab: Function;
+  pushRoute: Function;
+};
 
 class NavigationView extends React.PureComponent {
   static propTypes = {
@@ -33,9 +52,11 @@ class NavigationView extends React.PureComponent {
     pushRoute: PropTypes.func.isRequired
   }
 
+  props: Props;
+
   // NavigationHeader accepts a prop style
   // NavigationHeader.title accepts a prop textStyle
-  renderHeader = (sceneProps) => (
+  renderHeader = (sceneProps: { style?: Object; textStyle?: Object; scene: { route: { title: string; }} }) => (
     <NavigationHeader
       {...sceneProps}
       onNavigateBack={this.props.onNavigateBack}
@@ -51,7 +72,7 @@ class NavigationView extends React.PureComponent {
 
   // render scene and apply padding to cover
   // for app bar and navigation bar
-  renderScene = (sceneProps) => (
+  renderScene = (sceneProps: any) => (
     <View style={styles.sceneContainer}>
       {AppRouter(sceneProps)}
     </View>

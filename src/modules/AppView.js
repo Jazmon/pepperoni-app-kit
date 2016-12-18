@@ -1,3 +1,4 @@
+// @flow
 import React, {PropTypes} from 'react';
 import {View, StyleSheet, ActivityIndicator} from 'react-native';
 import NavigationViewContainer from './navigation/NavigationViewContainer';
@@ -5,6 +6,11 @@ import * as snapshotUtil from '../utils/snapshot';
 import * as SessionStateActions from '../modules/session/SessionState';
 import store from '../redux/store';
 import DeveloperMenu from '../components/DeveloperMenu';
+
+type Props = {
+  isReady: boolean;
+  dispatch: Function;
+};
 
 class AppView extends React.Component {
   static propTypes = {
@@ -28,6 +34,8 @@ class AppView extends React.Component {
         });
       });
   }
+
+  props: Props;
 
   render() {
     if (!this.props.isReady) {
